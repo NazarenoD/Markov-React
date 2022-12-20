@@ -1,12 +1,18 @@
 h3{
   font-family: "EB Garamond";
-  color : rgb(9, 5, 5);
+  color : rgb(205, 205, 205);
 
 }
 p{
   font-family: "EB Garamond";
-  color : rgb(9, 5, 5);
+  color : rgb(253, 253, 253);
 }
+
+.Math-c{
+  color : rgb(253, 253, 253);
+}
+
+
 .c-text{
   background-color:rgba(0, 0, 0, 0.8) !important;
 }

@@ -8,22 +8,32 @@ import stat_1 from '../img/stat1.jpg';
 
 
 import React from "react";
+import { useEffect, useState } from "react";
 
 function Articles() {
+  const [articles, setArticles] = useState([]);
+
+   useEffect(() => {
+      fetch('http://127.0.0.1:8000/art/main/')
+         .then((response) => response.json())
+         .then((data) => {
+          setArticles(data);
+         })
+         .catch((err) => {
+            console.log(err.message);
+         });
+   }, []);
 
     return (
       <Container>
         <Row xs={1} md={2} className="g-4">
-        {Array.from({ length: 4 }).map((_, idx) => (
-        <Col>
-          <Card>
-            <Card.Img variant="top" src={stat_1} />
+        {articles.map((item,i) => (
+        <Col key = {i}>
+          <Card bg="dark">
             <Card.Body>
-              <Card.Title>Card title</Card.Title>
+              <Card.Title className="text-light">{item.title}</Card.Title>
               <Card.Text>
-                This is a longer card with supporting text below as a natural
-                lead-in to additional content. This content is a little bit
-                longer.
+                {item.description}
               </Card.Text>
             </Card.Body>
           </Card>

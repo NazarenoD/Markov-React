@@ -8,8 +8,7 @@ import stat_1 from '../img/stat1.jpg';
 
 function CardMarkov(props) {
   return (
-    <Card>
-      <Card.Img variant="top" src={stat_1} />
+    <Card bg = "dark">
       <Card.Body>
         <Card.Title><h3>{props.dict.title}</h3></Card.Title>
         <Card.Text>
@@ -19,7 +18,7 @@ function CardMarkov(props) {
         </Card.Text>
         <div className='text-center'>
           <Link to={props.dict.title}>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="outline-light">Temas</Button>
           </Link>
         </div>
       </Card.Body>

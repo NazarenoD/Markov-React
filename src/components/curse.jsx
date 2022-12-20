@@ -30,14 +30,14 @@ function Curse() {
         {excercise.map((item,i)=>{return(
         <Accordion.Item eventKey={item.id_exercise} key= {item.id_exercise}>
           <Accordion.Header>
-          <Container>
+          <Container className='bg-dark rounded'>
           <div className='text-center'>
           <h3>{item.title}</h3>
             {item.description.split("::::").map((str,i)=>{
               if (str.replace(/\s/g,'')[0] === "\\"){
                 return(
                   <MathJaxContext key = {`math_${i}`}>
-                  <MathJax>{"\\("+str+"\\)"}</MathJax>
+                  <MathJax className="Math-c">{"\\("+str+"\\)"}</MathJax>
                   </MathJaxContext>
                 )
               }
@@ -53,7 +53,8 @@ function Curse() {
           </div>
           </Container>
           </Accordion.Header>
-          <Accordion.Body>
+          <Accordion.Body >
+            <Container>
           
           {item.solution.split("::::").map((str,r)=>{
               if (str.replace(/\s/g,'')[0] === "\\"){
@@ -65,17 +66,17 @@ function Curse() {
               }
               else{
                   return(
-                    <p key = {`math_r_${r}`}>
+                    <p className='text-dark' key = {`math_r_${r}`}>
                       {str}
                     </p>
                   )
                 }
             })}
-          
+          </Container>
           </Accordion.Body>
         </Accordion.Item>
         )})}
-
+        
         
     
         </Accordion>

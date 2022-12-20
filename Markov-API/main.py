@@ -3,11 +3,15 @@ from fastapi.middleware.cors import CORSMiddleware
 from models import tables
 from models.db import engine
 
-from routers import exercises
+from routers import (
+    exercises,
+    articles
+    )
 
 app = FastAPI()
 
 app.include_router(exercises.router)
+app.include_router(articles.router)
 
 tables.Base.metadata.create_all(engine)
 
